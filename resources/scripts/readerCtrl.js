@@ -4,10 +4,10 @@ angular.module("readerApp")
 
     $scope.test = "Hullo";
     $scope.middleContent = new Object();
-    $scope.availableDocs = ["Clan Calderini", "Post Forum", "Jeux adaptés à WoW"];
+    $scope.availableDocs = undefined;
 
     $scope.authorList = [{ name: "Kalifryn", id: 1 }, { name: "Zeff", id: 2 }, { name: "Tireks", id: 3 }];
-    $scope.selectedAuthor = $scope.authorList[1];
+    $scope.selectedAuthor = undefined;
 
 /*$scope.options = [{ name: "a", id: 1 }, { name: "b", id: 2 }];
 $scope.selectedOption = $scope.options[1];*/
@@ -25,6 +25,11 @@ $scope.selectedOption = $scope.options[1];*/
             $scope.availableDocs = ["Clayton Whyn : Journal de bord", "Jakes Thielor : la poisse de l'alcoolique teubé", "Jedrôk, le tauren sympa"];
         }
      };  
+
+    $scope.goHome = function() {
+        $scope.selectedAuthor = undefined;
+        $scope.availableDocs = undefined;
+    }
 
 // ---------------------------------------- METHODE EN POST ---------------------------------------
     $scope.search = function () {

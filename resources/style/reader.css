@@ -4,6 +4,21 @@ nav, section, article {
 	margin:5px; padding:8px;
 }
 
+a:hover {
+	text-decoration: none;
+}
+
+.pk-homeButton {
+	margin: 15px;
+	margin-left: 5px;
+	margin-right: 25px;
+	float: left;
+}
+
+.pk-homeButton:hover, .list-author:hover {
+	cursor: pointer;
+}
+
 .footer, .navbar-header {
 	background-color: #495669;
 	color: #fafafa;
@@ -12,8 +27,12 @@ nav, section, article {
 .navbar-header {
 	border-style: none;
 	box-shadow: none;
-	height: 80px;
- 	padding-left: 50px;
+	height: 85px;
+ 	padding-left: 20px;
+}
+
+.navbar-header > h1 {
+	/*color: red;*/
 }
 
 .nav-sidebar {
@@ -26,7 +45,7 @@ nav, section, article {
 /*	color: #dadada;*/
 
 	position: fixed;
-    top: 80px;
+    top: 85px;
     bottom: 40px;
     left: 0;
     z-index: 1000;
@@ -42,10 +61,13 @@ nav, section, article {
 
 	position: fixed;
     z-index: 1000;
-    top: 80px;
+    top: 85px;
     bottom: 40px;
     left: 275px;
     right: 0;
+
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 
 }
 
