@@ -1,0 +1,119 @@
+ /* Body components (BOOTSTRAP) -----------------------------------------*/
+.infoArticleBox {
+  color: inherit;
+  background-color: #eee;
+}
+.infoArticleBox h1,
+.infoArticleBox .h1 {
+  color: inherit;
+}
+.infoArticleBox p {
+  margin-bottom: 15px;
+  font-size: 21px;
+  font-weight: 200;
+}
+.infoArticleBox > hr {
+  border-top-color: #d5d5d5;
+}
+.container .infoArticleBox,
+.container-fluid .infoArticleBox {
+  border-radius: 6px;
+}
+.infoArticleBox .container {
+  max-width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .infoArticleBox {
+    padding: 5px 0;
+  }
+  .container .infoArticleBox,
+  .container-fluid .infoArticleBox {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+  }
+
+.infoArticleBox-header {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* Mise en page dans les boxes ---------------------------------------- */
+
+/*Les boxs grises (contient le nom de la box plus ses datas)*/
+.infoArticleBox {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  float: none;
+}
+
+/*La div qui contient tous les labels*/
+.article-labels {
+  float: left;
+}
+
+/*La div qui contient toutes les datas*/
+.article-data {
+
+}
+
+/*Un élément : label ou data individuel*/
+.article-element {
+  padding-right: 15px;
+  margin-bottom: 3px;
+}
+
+td {
+    padding-left: 4px;
+    padding-right: 6px;
+    padding-bottom: 3px;
+}
+
+.getInfoSuppl:hover {
+  cursor: pointer;
+}
+
+
+/*STYLES FOR BOOTSTRAP ELEMENTS (Footer etc) -----------------------------*/
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}

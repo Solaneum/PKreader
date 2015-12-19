@@ -1,0 +1,91 @@
+/*Juste pour bien voir les différents éléments*/
+nav, section, article {
+	border:1px solid lightgrey; 
+	margin:5px; padding:8px;
+}
+
+.footer, .navbar-header {
+	background-color: #495669;
+	color: #fafafa;
+}
+
+.navbar-header {
+	border-style: none;
+	box-shadow: none;
+	height: 80px;
+ 	padding-left: 50px;
+}
+
+.nav-sidebar {
+	margin: 0px;
+    border-style: none;
+	float: left;
+	width: 275px;
+
+    background-color: #e1e5ea;
+/*	color: #dadada;*/
+
+	position: fixed;
+    top: 80px;
+    bottom: 40px;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.story-related-content {
+	float:left;
+	margin: 0px;
+
+	position: fixed;
+    z-index: 1000;
+    top: 80px;
+    bottom: 40px;
+    left: 275px;
+    right: 0;
+
+}
+
+nav ul {
+	margin:0; 
+	padding:0;
+}
+
+.liste-navbar > ul {
+	margin-top:10px; 
+	margin-left: 15px;
+	padding:0;
+}
+
+
+.navbar-doc-content ul li {
+	display:inline;
+	margin:5px;
+}
+
+.list-author {
+	border : 1px solid white;
+ 	background-color: #fafafa;
+ 	width: 180px;
+ 	padding-left: 10px;
+ 	border-radius: 10px;
+ 	color: #555;
+}
+
+.select-author {
+
+}
+
+.footer {
+ 	position: absolute;
+ 	bottom: 0;
+ 	width: 100%;
+ 	height: 40px;
+ 	/*font-size:2em;*/
+ 	padding-left: 40px;
+ 	padding-top: 10px;
+}
+

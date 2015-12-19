@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html ng-app="dispoArticleApp">
+
+    <head>
+
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/x-icon" href="resources/img/favicon.ico" />
+
+        <title>Disponibilité Articles</title>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" type="text/css" href="resources/libraries/bootstrap/css/bootstrap.min.css">
+
+        <!-- Own CSS -->
+        <link rel="stylesheet" type="text/css" href="resources/resources/stylesheets/dispoArticleStyle.css">
+        <link rel="stylesheet" type="text/css" href="resources/style/reader.css">
+
+        <!-- AngularJS -->
+        <script src= "resources/libraries/angularJS/angular.min.js"></script>
+        <script src="resources/libraries/angularJS/angular-resource.js"></script>
+
+    </head>
+
+    <body>
+<!-- La NavBar (fixed) -->
+    <header class="navbar navbar-default navbar-fixed-top">  
+        <a class="navbar-brand" href="#">
+            <img alt="PK_Logo" src="resources/img/favicon.ico" height="42" width="42"/>
+        </a>
+        <h1>Dans la bibliothèque de...</h1>
+    </header>
+<!-- Fin de la NavBar -->
+
+<!-- NavBar Stories -->
+
+<div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Analytics</a></li>
+            <li><a href="#">Export</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">Nav item</a></li>
+            <li><a href="">Nav item again</a></li>
+            <li><a href="">One more nav</a></li>
+            <li><a href="">Another nav item</a></li>
+            <li><a href="">More navigation</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href="">Nav item again</a></li>
+            <li><a href="">One more nav</a></li>
+            <li><a href="">Another nav item</a></li>
+          </ul>
+        </div>
+
+<!-- Fin de la navbar stories -->
+
+
+<!-- Contenu de la page -->
+    <div class="container" ng-controller="dispoArticleCtrl">
+        <div class="page-header">
+            <p class="lead">Recherche des informations d'un article</p>
+            <br/>
+            <p>Identifiant : <input type="text" ng-model="IDRecherche" placeholder="Reference">
+                <button ng-click="search()" ng-disabled="IDRecherche == ''" type="button" class="btn btn-default">
+                  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                </button>
+            </p>
+        </div>
+        <!-- Emplacement pour l'affichage des erreurs -->
+        <p>{{errorMsg}}</p>
+
+        <div ng-hide="article.id==undefined">
+
+            <!-- Début du contenu de la réponse -->
+
+
+            <div class="infoArticleBox" id="infoPrincip">
+                <p class="infoArticleBox-header">Informations principales</p>
+                <div class="article-labels">
+                    <div class="article-element" ng-repeat="x in article.listeDesignationDTO">Désignation :</div>
+                    <div class="article-element">Code commercial :</div>
+                    <div class="article-element">Prix de vente HT :</div>
+                    <div class="article-element">Prix de vente TTC : </div>
+                    <div class="article-element">Géré en stock : </div>
+                </div>
+
+                <div class="article-data">
+                    <div class="article-element" ng-repeat="x in article.listeDesignationDTO">{{ x.libelleLigne }}</div>
+                    <div class="article-element"> {{ article.codeCommercial }} </div>
+                    <div class="article-element"> {{ article.prixVenteHt }} </div>
+                    <div class="article-element"> {{ article.prixVenteTtc }} </div>
+                    <div class="article-element"> {{ article.gereStock }} </div>
+
+                </div>
+            </div>
+
+
+            <div class="infoArticleBox" id="infoSuppl">
+                <div class="getInfoSuppl" ng-click="toggleInfos=!toggleInfos">
+                    <p class="infoArticleBox-header">
+                        Informations supplémentaires
+                    </p>
+                </div>            
+                
+                <div ng-hide="toggleInfos">
+                    <div class="article-labels">
+                        <div class="article-element">Réference :</div>
+                        <div class="article-element" ng-repeat="ean in article.listeEanDTO">EANs :</div>
+                        <div class="article-element">Fournisseur :</div>
+                        <div class="article-element">Top vente : </div>
+                        <div class="article-element">Acheteur principal : </div>
+                        <div class="article-element">Famille d'article :</div>
+                        <div class="article-element">Produit composé : </div>
+                    </div>
+
+                    <div class="article-data">
+                        <div class="article-element"> {{ article.referenceConstructeur }} </div>
+                        <div class="article-element" ng-repeat="ean in article.listeEanDTO"> {{ ean.codean || "non renseigné" }} </div>
+                        <div class="article-element"> {{ article.fournisseurDTO.nom }} <span ng-hide="article.fournisseurDTO.code == undefined">({{ article.fournisseurDTO.code }})</span> </div>
+                        <div class="article-element"> {{ article.topVente }} </div>
+                        <div class="article-element"> {{ article.acheteurPrincipal }} </div>
+                        <div class="article-element"> {{article.familleArticleDTO.libelleFamille}} <span ng-hide="article.familleArticleDTO.codeFamille == undefined">({{article.familleArticleDTO.codeFamille}})</span> </div>
+                        <div class="article-element"> {{ article.compose }} </div>
+                    </div>
+               
+                </div>
+            </div>
+        </div>
+        <!-- Fin du contenu de la réponse -->
+
+    </div>
+<!-- Fin du contenu -->
+
+
+
+<!-- La Footbar (fixed) -->
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">LDLC - Service DSI</p>
+        </div>
+    </footer>
+<!-- Fin de la Footbar -->
+
+
+        <!-- Scripts AngularJS -->
+        <script src="resources/scripts/dispoArticleModule.js"></script>
+        <script src="resources/scripts/dispoArticleFactory.js"></script>
+        <script src="resources/scripts/dispoArticleCtrl.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="libraries/bootstrap/js/bootstrap.min.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="readerApp">
+<head>
+
+<title>Pâté Killer's Library</title>
+<meta charset="utf-8">
+
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+</script>
+<![endif]-->
+
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<!-- AngularJS -->
+<script src= "resources/libraries/angularJS/angular.min.js"></script>
+<script src="resources/libraries/angularJS/angular-resource.js"></script>
+
+<!-- Own Stuff -->
+<link rel="stylesheet" href="resources/style/reader.css">
+<link rel="icon" href="resources/img/favicon.ico" />
+
+</head>
+
+<body ng-controller="readerCtrl">
+<header class="navbar-fixed-top navbar-header">
+<h1>Dans la bibliothèque de... 
+
+<!-- <select class=list-author>	
+  <option class=select-author ng-hide="selectedAuthor != undefined" selected> {{selectedAuthor}} </option>
+  <option class=select-author ng-repeat="dude in authors" ng-value="dude" ng-click="getAvailableDocsForAuthor()"> {{dude}} </option>
+</select> -->
+<select class=list-author data-ng-options="o.name for o in authorList" data-ng-model="selectedAuthor" ng-click="updateDocs()"></select>
+
+
+</h1>
+</header>
+
+<nav id=stories-sidebar class="nav nav-sidebar">
+	Documents disponibles :
+<ul class="liste-navbar">
+  <ul ng-repeat="doc in availableDocs"><a href=#>	⟐ {{doc}} </a></ul>
+</ul>
+</nav>
+
+
+<section class="story-related-content">
+
+	<nav class="navbar-doc-content">
+	<ul>
+	  <li><a href="#">Chapitre 1</a></li>
+	  <li><a href="#">Chapitre 2</a></li>
+	  <li><a href="#">Chapitre 3</a></li>
+	  <li><a href="#">Chapitre 4</a></li>
+	</ul>
+	</nav>
+
+	<h2>Un truc à lire ici</h2>
+	{{test}}
+
+
+	{{selectedAuthor.name}}
+
+<br/><br/><br/>
+	<canvas id="myCanvas" width="210" height="297" style="border:1px solid #d3d3d3;">
+	Votre navigateur ne supporte pas les canvas HTML5.</canvas>
+
+</section>
+
+<footer class="footer">
+<p>&copy; Kalifryn - Pâté Killer Guild </p>
+</footer>
+
+        <!-- Scripts AngularJS -->
+        <script src="resources/scripts/readerModule.js"></script>
+        <script src="resources/scripts/readerFactory.js"></script>
+        <script src="resources/scripts/readerCtrl.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="libraries/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>
